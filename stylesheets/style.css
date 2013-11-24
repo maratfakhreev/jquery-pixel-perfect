@@ -1,0 +1,249 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600&subset=latin,cyrillic,cyrillic-ext);
+/* CSS reset, yahoo table optimized by Imbamarik in 2011 */
+/* line 4, ../sass/_reset.scss */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 9, ../sass/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 14, ../sass/_reset.scss */
+fieldset, img {
+  border: 0;
+}
+
+/* line 18, ../sass/_reset.scss */
+addres, caption, cite, code, dfh, em, strong, th, var, optgroup {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* line 23, ../sass/_reset.scss */
+del, ins {
+  text-decoration: none;
+}
+
+/* line 27, ../sass/_reset.scss */
+ol, ul, li {
+  list-style: none;
+}
+
+/* line 31, ../sass/_reset.scss */
+caption, th {
+  text-align: left;
+}
+
+/* line 35, ../sass/_reset.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* line 40, ../sass/_reset.scss */
+b, strong {
+  font-weight: bold;
+}
+
+/* line 44, ../sass/_reset.scss */
+q:before, q:after {
+  content: ' ';
+}
+
+/* line 48, ../sass/_reset.scss */
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* line 6, ../sass/style.scss */
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* line 12, ../sass/style.scss */
+#wrapper {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* line 18, ../sass/style.scss */
+.footer {
+  display: block;
+  position: fixed;
+  left: 8px;
+  bottom: 8px;
+  width: 51px;
+  height: 24px;
+  background-image: url("../images/footer.png");
+}
+
+/* line 28, ../sass/style.scss */
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* line 34, ../sass/style.scss */
+.photo li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+/* line 45, ../sass/style.scss */
+.photo li.img-1 {
+  background-image: url("../images/1.jpg");
+}
+/* line 49, ../sass/style.scss */
+.photo li.img-2 {
+  background-image: url("../images/2.jpg");
+}
+/* line 53, ../sass/style.scss */
+.photo li.img-3 {
+  background-image: url("../images/3.jpg");
+}
+/* line 57, ../sass/style.scss */
+.photo li.img-4 {
+  background-image: url("../images/4.jpg");
+}
+/* line 61, ../sass/style.scss */
+.photo li.img-5 {
+  background-image: url("../images/5.jpg");
+}
+/* line 65, ../sass/style.scss */
+.photo li.active {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+}
+
+/* line 72, ../sass/style.scss */
+.items {
+  width: 10000px;
+  height: 52px;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  bottom: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 0 4px;
+  margin-left: -15px;
+}
+/* line 84, ../sass/style.scss */
+.items li {
+  margin: 0 auto;
+  float: left;
+  display: block;
+  height: 48px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 4px 2px;
+  position: relative;
+}
+/* line 93, ../sass/style.scss */
+.items li .photo {
+  opacity: 0.4;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background-color: #cfcfcf;
+}
+/* line 101, ../sass/style.scss */
+.items li .text {
+  display: none;
+  width: 340px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  margin-left: -170px;
+  bottom: 65px;
+  padding: 20px;
+}
+/* line 114, ../sass/style.scss */
+.items li .text:after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  margin-left: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 7px solid white;
+}
+/* line 127, ../sass/style.scss */
+.items li .text .msg {
+  height: 370px;
+  overflow-y: auto;
+  margin-top: 25px;
+  font-size: 14px;
+  font-style: italic;
+  color: #3d3131;
+}
+/* line 137, ../sass/style.scss */
+.items li span {
+  display: block;
+}
+/* line 141, ../sass/style.scss */
+.items li .s-1 {
+  color: #d1ae5f;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  text-align: center;
+  font-style: italic;
+}
+/* line 149, ../sass/style.scss */
+.items li .s-2 {
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  color: #413f43;
+}
+/* line 156, ../sass/style.scss */
+.items li .s-2:after {
+  content: '';
+  background-image: url("../images/figure.png");
+  width: 279px;
+  height: 5px;
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+}
+/* line 168, ../sass/style.scss */
+.items li.active .text {
+  display: block;
+}
+/* line 172, ../sass/style.scss */
+.items li.active .photo {
+  opacity: 1;
+}
