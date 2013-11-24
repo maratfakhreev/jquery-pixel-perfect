@@ -1,10 +1,10 @@
 (function($){
 
-	jQuery.fn.pixelPerfect = function(options){
+	$.fn.pixelPerfect = function(options){
 		_this = $(this);
 
 		options = $.extend({
-			path: "images/mockup.jpg", //default mockup path
+			path: "images/mockup.png", //default mockup path
 			draggable: true, //draggable state
 			topBtnCode: 38, //default is "Up arrow" key
 			rightBtnCode: 39, //default is "Right arrow" key
@@ -24,7 +24,6 @@
 		};
 
 		var initMockup = function(){
-			_this.prepend('<div class="j-pp-help"></div>');
 			_this.prepend('<img id="j-pp-mockup" style="opacity: 0" src="' + options.path + '"/><div class="j-pp-mockup " style=""></div>');
 			$(window).load(function(){
 				var m = $("#j-pp-mockup");
@@ -41,33 +40,56 @@
 		};
 
 		var initInterface = function(){
-			alert('sdfsdf')
+			_this.prepend('<div class="j-pp-help">\
+				<div class="j-pp-icon"></div>\
+				<div class="j-pp-block">\
+					<div class="title">jQuery-pixel-perfect. ver 1.0</div>\
+					<div>Use "Up/Down/Left/Right arrow" keys for moving mockup</div>\
+					<div>Use "Q/W" keys for changing opacity value</div>\
+					<div>Use "S" key to show/hide mockup</div>\
+					<div class="ver">created by Fakhreev Marat</div>\
+				</div>\
+			</div>');
+			_this.on('click', '.j-pp-icon', function(){
+				that = $(this);
+				that.toggleClass('active');
+				if (that.hasClass('active')){
+					_this.find('.j-pp-block').fadeIn(300);
+				}
+				else {
+					_this.find('.j-pp-block').fadeOut(300);
+				}
+			})
 		}
 
 		var draggingActions = function(){
-			var dragging = false,
-					_body = $('body');
-			_body.on("mousedown", '.j-pp-mockup', function(event){
-				$(this).attr('unselectable', 'on').addClass('draggable');
-				var el_w = $('.draggable').outerWidth(),
-						el_h = $('.draggable').outerHeight();
-				_body.on("mousemove", function(event){
-					if (dragging && dragging.hasClass('draggable')){
-						dragging.offset({
-							top: event.pageY - el_h / 27,
-							left: event.pageX - el_w / 27
-						});
-					}
+			if (options.draggable){
+				var dragging = false,
+						_body = $('body');
+				_body.on("mousedown", '.j-pp-mockup', function(event){
+					$(this).attr('unselectable', 'on').addClass('draggable');
+					var posY = $('.draggable').offset().top,
+							posX = $('.draggable').offset().left,
+							mouseY = event.pageY,
+							mouseX = event.pageX;
+					_body.on("mousemove", function(event){
+						if (dragging && dragging.hasClass('draggable')){
+							dragging.offset({
+								top: posY + event.pageY - mouseY,
+								left: posX + event.pageX - mouseX
+							});
+						}
+					});
+					dragging = $(event.target);
 				});
-				dragging = $(event.target);
-			});
-			_body.on("mouseup", ".draggable", function(event){
-				dragging = false;
-				$(this).removeAttr('unselectable').removeClass('draggable');
-			});
-			_body.on("mouseleave", ".draggable", function(event){
-				$(this).removeClass('draggable');
-			})
+				_body.on("mouseup", ".draggable", function(event){
+					dragging = false;
+					$(this).removeAttr('unselectable').removeClass('draggable');
+				});
+				_body.on("mouseleave", ".draggable", function(event){
+					$(this).removeClass('draggable');
+				});
+			};
 		};
 
 		var keyboardActions = function(){
@@ -76,7 +98,7 @@
 				left: 0, 
 				opacity: 1.0, 
 				display: 'block',
-				isVisible: true,
+				isVisible: true
 			};
 			$(document).on('keydown', function(event){
 				p.top = _this.container.css('top');
@@ -109,7 +131,7 @@
 					'top': p.top +'px',
 					'left': p.left +'px',
 					'opacity': p.opacity,
-					'display': p.display,
+					'display': p.display
 				});
 			});
 		};
