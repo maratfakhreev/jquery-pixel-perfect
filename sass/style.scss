@@ -1,0 +1,44 @@
+@import "compass";
+
+.navbar {
+	border-radius: 0px;
+	border: none;
+}
+
+.btn {
+	border-radius: 4px;
+	&.btn-log {
+		border-radius: 0px;
+	}
+}
+
+.head-block {
+	h1 {
+		font-size: 50px;
+		margin-bottom: 25px;
+	}
+
+	.button {
+		margin: 0 auto;
+	}
+
+	.imac {
+		margin: 0 auto;
+		width: 600px;
+		height: 479px;
+		background: url(../images/imac.png) center center no-repeat;
+		background-size: cover;
+		position: relative;
+		top: 50px;
+	}
+}
+
+code {
+	display: block;
+	width: 100%;
+	padding: 20px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	@include box-sizing(border-box);
+	background-color: #efefef;
+}
