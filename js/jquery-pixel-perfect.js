@@ -12,6 +12,7 @@
 			leftBtnCode: 37, //default is "Left arrow" key
 			opacityIncBtn: 81, //default is "Q" key
 			opacityDecBtn: 87, //defauls is "W" key
+			changePositionBtn: 70, //default is "F" key
 			visibility: 83 //default is "S" key
 		}, options);
 
@@ -31,10 +32,8 @@
 				_this.container.css({
 					'width': m.width(),
 					'height': m.height(),
-					'top': 0,
-					'left': 0,
 					'background-image': 'url(' + options.path + ')'
-				})
+				});
 				m.remove();
 			});
 		};
@@ -43,23 +42,19 @@
 			_this.prepend('<div class="j-pp-help">\
 				<div class="j-pp-icon"></div>\
 				<div class="j-pp-block">\
-					<div class="title">jQuery-pixel-perfect. ver 1.0</div>\
+					<div class="title">jQuery-Pixel-Perfect ver 1.0</div>\
 					<div>Use "Up/Down/Left/Right arrow" keys for moving mockup</div>\
 					<div>Use "Q/W" keys for changing opacity value</div>\
 					<div>Use "S" key to show/hide mockup</div>\
-					<div class="ver">created by Fakhreev Marat</div>\
+					<div>Use "F" key to change fixed/absolute positioning</div>\
 				</div>\
 			</div>');
 			_this.on('click', '.j-pp-icon', function(){
 				that = $(this);
 				that.toggleClass('active');
-				if (that.hasClass('active')){
-					_this.find('.j-pp-block').fadeIn(300);
-				}
-				else {
-					_this.find('.j-pp-block').fadeOut(300);
-				}
-			})
+				if (that.hasClass('active')) _this.find('.j-pp-block').fadeIn(300);
+				else _this.find('.j-pp-block').fadeOut(300);
+			});
 		}
 
 		var draggingActions = function(){
@@ -78,7 +73,7 @@
 								top: posY + event.pageY - mouseY,
 								left: posX + event.pageX - mouseX
 							});
-						}
+						};
 					});
 					dragging = $(event.target);
 				});
@@ -98,7 +93,7 @@
 				left: 0, 
 				opacity: 1.0, 
 				display: 'block',
-				isVisible: true
+				position: 'fixed'
 			};
 			$(document).on('keydown', function(event){
 				p.top = _this.container.css('top');
@@ -123,15 +118,18 @@
 						p.opacity = (p.opacity > 0) ? rnd(p.opacity - 0.1) : p.opacity;
 						break;
 					case options.visibility:
-						p.display = (p.isVisible) ? 'none' : 'block'
-						p.isVisible = !p.isVisible;
+						p.display = (p.display == 'block') ? 'none' : 'block';
+						break;
+					case options.changePositionBtn:
+						p.position = (p.position == 'fixed') ? 'absolute' : 'fixed';
 						break;
 				};
 				_this.container.css({
-					'top': p.top +'px',
-					'left': p.left +'px',
+					'top': p.top + 'px',
+					'left': p.left + 'px',
 					'opacity': p.opacity,
-					'display': p.display
+					'display': p.display,
+					'position': p.position
 				});
 			});
 		};

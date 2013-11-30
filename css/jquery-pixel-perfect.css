@@ -17,7 +17,7 @@ body {
   height: 30px;
   border-radius: 50%;
   background-color: #fff;
-  border: 1px solid #666;
+  border: 1px solid #666666;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -60,13 +60,6 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   margin-bottom: 7px;
   padding-bottom: 3px;
-  font-style: italic;
-}
-.j-pp-help .j-pp-block .ver {
-  text-align: right;
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  margin-top: 7px;
-  font-size: 10px;
   font-style: italic;
 }
 
