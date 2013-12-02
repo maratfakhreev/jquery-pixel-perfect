@@ -1,59 +1,126 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Bootstrap 101 Template</title>
+		<title>jQuery-Pixel-Perfect</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
+		<link href="css/jquery-pixel-perfect.css" rel="stylesheet">
+
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-pixel-perfect.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('body').pixelPerfect();
+				$('.j-pp-mockup').css({"display": "none"});
+			});
+		</script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-			    <a class="navbar-brand" href="#">Fakhreev M</a>
-			  </div>
+					<a class="navbar-brand" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect">Fakhreev M</a>
+				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			    <ul class="nav navbar-nav">
-			      <li><a href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect/zipball/master">Download <strong>ZIP File</strong></a></li>
-			    </ul>
-			    <ul class="nav navbar-nav navbar-right">
-			      <li><a href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect">View On <strong>GitHub</strong></a></li>
-			    </ul>
-			  </div>
+					<ul class="nav navbar-nav">
+						<li><a href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect/archive/1.0.zip">Download <strong>ZIP File</strong></a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect">View On <strong>GitHub</strong></a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 
 		<div class="container">
 			<div class="page-header">
-			  <h1>jQuery-Pixel-Perfect</h1>
+				<h1>jQuery-Pixel-Perfect</h1>
 			</div>
 
 			<div class="head-block jumbotron">
-			  <h1>A simple and lightweight tool for convenient work with design mockups in browser</h1>
-			  <p>
-					<a class="btn btn-primary btn-lg" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect/zipball/master" role="button">Download</a>
-					<a class="btn btn-primary btn-lg" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect/zipball/master" role="button">Docs</a>
+				<h1>A simple and lightweight tool for convenient work with design mockups in browser</h1>
+				<p>
+					<a class="btn btn-primary btn-lg" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect/archive/1.0.zip" role="button">Download (v1.0)</a>
+					<a class="btn btn-primary btn-lg" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect" role="button">Docs</a>
 				</p>
-				<div class="imac"></div>
+				<div class="computer">
+					<div class="window"></div>
+					<div class="imac"></div>
+				</div>
+			</div>
+
+			<div class=".col-md-12">
+				<h1>What is it?</h1>
+				<p>jQuery-Pixel-Perfect is a small plugin that allows a convenient way to impose design layout over the developed site. So you have no lines and measurements can write CSS code that pixel-matching design layout. Try it ride now, press <span>[S]</span> key</p>
 			</div>
 
 			<div class=".col-md-12">
 				<h1>How to install?</h1>
-				<p>
-					Download the latest version of jQuery-Pixel-Perfect. <br/>
-					Add files to your project </br>
-					<code>
-						&ltscript src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"&gt&lt/script&gt <br/>
-						&ltscript src="_xprecise/xprecise.min.js" type="text/javascript"&gt&lt/script&gt </br>
-					</code>
-					Create overlay images for pages you are coding. Grayscale images are recommended to see the differences better. Use JPG for the overlay and save it with the same name as the page your are working on to X-Precise folder /_xprecise/. X-Precise will automatically try to load a JPG with the same name as the page has (index.html -> index.jpg) from this folder. Of course you can load an image with different name, too. Just be sure to change the path in X-Precise interface.
-				</p>
+				<ol class="list">
+					<li>Download the latest version of jQuery and jQuery-Pixel-Perfect css and js files</li>
+					<li>Add files to your project
+						<code>
+							&ltlink href="jquery-pixel-perfect.css" rel="stylesheet"&gt </br>
+							&ltscript src="https://code.jquery.com/jquery.js" type="text/javascript"&gt&lt/script&gt <br/>
+							&ltscript src="jquery-pixel-perfect.js" type="text/javascript"&gt&lt/script&gt </br>
+						</code>
+					</li>
+					<li>
+						Create overlay image for page you are coding and put it in some folder in your project. For example in <span>../images/mockup.png</span>
+					</li>
+					<li>
+						Add initial js code which bind "body" tag with jQuery-Pixel-Perfect method:
+						<code>
+							$(document).ready(function(){<br/>
+								&nbsp;&nbsp;$('body').pixelPerfect();<br/>
+							})
+						</code>
+					</li>
+				</ol>
 			</div>
 
+			<div class=".col-md-12">
+				<h1>How to use?</h1>
+				<ol class="list">
+					<li>
+						Use the following buttons to:<br/>
+						<span>[Up] / [Down] / [Left] / [Right]</span> keys or mouse for moving mockup<br/>
+						<span>[Q] / [W]</span> keys for changing opacity value<br/>
+						<span>[S]</span> key to show/hide mockup<br/>
+						<span>[F]</span> key to change "absolute/fixed" positioning property of mockup<br/>
+					</li>
+					<li>
+						Actually you can change default parameters like an actions of keyboard keys, image path, mockup draggable statement. For this you need to specify the input parameters of the jQuery-Pixel-Perfect method.
+						<code>
+							$(document).ready(function(){<br/>
+								&nbsp;&nbsp;$('body').pixelPerfect({<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;path: "images/mockup.png", //default mockup path<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;draggable: true, //draggable state<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;topBtnCode: 38, //default is "Up" key<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;rightBtnCode: 39, //default is "Right" key<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;bottomBtnCode: 40, //default is "Down" key<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;leftBtnCode: 37, //default is "Left" key<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;opacityIncBtn: 81, //default is "Q" key<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;opacityDecBtn: 87, //defauls is "W" key<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;changePositionBtn: 70, //default is "F" key<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;visibility: 83 //default is "S" key<br/>
+								&nbsp;});<br/>
+							})
+						</code>
+					</li>
+					<li>
+						Full table with keyboard keys code you can find <a target="_blank" href="http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes">here</a>
+					</li>
+				</ol>
+			</div>
+
+			<footer class="footer">
+				&copy; 2013 All Rights Reserved.
+			</footer>
 		</div>
 	</body>
 </html>

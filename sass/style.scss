@@ -1,12 +1,27 @@
 @import "compass";
 
+.j-pp-mockup {
+	display: none;
+}
+
 .navbar {
 	border-radius: 0px;
 	border: none;
 }
 
+.nav > li > a {
+	padding: 0;
+	line-height: 48px;
+}
+
+span {
+	font-size: 100%;
+	color: #c7254e;
+	white-space: nowrap;
+}
+ 
 .btn {
-	border-radius: 4px;
+	border-radius: 3px;
 	&.btn-log {
 		border-radius: 0px;
 	}
@@ -14,31 +29,75 @@
 
 .head-block {
 	h1 {
-		font-size: 50px;
+		font-size: 48px;
 		margin-bottom: 25px;
+		text-align: center;
+	}
+
+	p {
+		text-align: center;
 	}
 
 	.button {
 		margin: 0 auto;
 	}
 
-	.imac {
+	.computer {
 		margin: 0 auto;
 		width: 600px;
 		height: 479px;
-		background: url(../images/imac.png) center center no-repeat;
-		background-size: cover;
 		position: relative;
 		top: 50px;
+
+		.window {
+			width: 550px;
+			height: 310px;
+			background: url(../images/window.png) center center no-repeat;
+			background-size: cover;
+			position: absolute;
+			z-index: 50;
+			top: 25px;
+			left: 25px;
+		}
+
+		.imac {
+			width: 600px;
+			height: 479px;
+			background: url(../images/imac.png) center center no-repeat;
+			background-size: cover;
+			position: absolute;
+			z-index: 100;
+		}
 	}
 }
 
-code {
-	display: block;
-	width: 100%;
-	padding: 20px;
-	margin: 10px 0;
-	border: 1px solid #ccc;
+p {
+	font-size: 16px;
+}
+
+.list {
+	padding: 10px 20px;
+
+	li {
+		font-size: 14px;
+		margin-bottom: 3px;
+	}
+
+	code {
+		display: block;
+		width: 100%;
+		padding: 20px;
+		margin: 10px 0;
+		border: 1px solid #ccc;
+		@include box-sizing(border-box);
+		background-color: #efefef;
+	}
+}
+
+.footer {
+	border-top: 1px solid #cecece;
+	margin-top: 20px;
+	padding: 30px;
 	@include box-sizing(border-box);
-	background-color: #efefef;
+	text-align: center;
 }
