@@ -12,7 +12,7 @@
 /* line 12, ../sass/style.scss */
 .nav > li > a {
   padding: 0;
-  line-height: 48px;
+  margin-top: 15px;
 }
 
 /* line 17, ../sass/style.scss */

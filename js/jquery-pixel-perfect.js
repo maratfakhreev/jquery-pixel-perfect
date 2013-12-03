@@ -30,6 +30,8 @@
 				var m = $("#j-pp-mockup");
 				_this.container = _this.find('.j-pp-mockup');
 				_this.container.css({
+					'top': 0, 
+					'left': 0, 
 					'width': m.width(),
 					'height': m.height(),
 					'background-image': 'url(' + options.path + ')'
@@ -100,27 +102,35 @@
 				p.left = _this.container.css('left');
 				switch (event.keyCode) {
 					case options.topBtnCode:
+						event.preventDefault();
 						p.top = numb(_this.container.css('top')) - 1;
 						break;
 					case options.rightBtnCode:
+						event.preventDefault();
 						p.left = numb(_this.container.css('left')) + 1;
 						break;
 					case options.bottomBtnCode:
+						event.preventDefault();
 						p.top = numb(_this.container.css('top')) + 1;
 						break;
 					case options.leftBtnCode:
+						event.preventDefault();
 						p.left = numb(_this.container.css('left')) - 1;
 						break;
 					case options.opacityIncBtn:
+						event.preventDefault();
 						p.opacity = (p.opacity < 1) ? rnd(p.opacity + 0.1) : p.opacity;
 						break;
 					case options.opacityDecBtn:
+						event.preventDefault();
 						p.opacity = (p.opacity > 0) ? rnd(p.opacity - 0.1) : p.opacity;
 						break;
 					case options.visibility:
+						event.preventDefault();
 						p.display = (p.display == 'block') ? 'none' : 'block';
 						break;
 					case options.changePositionBtn:
+						event.preventDefault();
 						p.position = (p.position == 'fixed') ? 'absolute' : 'fixed';
 						break;
 				};
