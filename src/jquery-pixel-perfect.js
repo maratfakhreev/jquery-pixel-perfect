@@ -126,10 +126,10 @@
           rightBtnCode: 39, //default is "Right arrow" key
           bottomBtnCode: 40, //default is "Bottom arrow" key
           leftBtnCode: 37, //default is "Left arrow" key
-          opacityIncBtn: 81, //default is "Q" key
-          opacityDecBtn: 87, //defauls is "W" key
-          changePositionBtn: 70, //default is "F" key
-          visibility: 83 //default is "S" key
+          opacityIncBtnCode: 81, //default is "Q" key
+          opacityDecBtnCode: 87, //defauls is "W" key
+          positionBtnCode: 70, //default is "F" key
+          visibilityBtnCode: 83 //default is "S" key
         }, options);
         this.initMockup();
         this.initInterface();
@@ -138,46 +138,70 @@
       }
 
       initMockup() {
-        $widgetEl.prepend(`
-          <img id="j-pp-mockup" style="opacity: 0" src="${this.options.path}"/>
-          <div class="j-pp-mockup"></div>
-        `);
+        $widgetEl
+          .find('.j-pp-mockup')
+          .remove()
+          .end()
+          .prepend(`
+            <img class="j-pp-mockup-image" style="opacity: 0" src="${this.options.path}"/>
+            <div class="j-pp-mockup"></div>
+          `);
 
-        $(window).load(() => {
-          const $mockup = $("#j-pp-mockup");
+        const prepareMockup = () => {
+          const $mockupImage = $widgetEl.find(".j-pp-mockup-image");
+
           $widgetEl.container = $widgetEl.find('.j-pp-mockup');
           $widgetEl.container.css({
             'top': 0,
             'left': 0,
-            'width': $mockup.width(),
-            'height': $mockup.height(),
+            'width': $mockupImage.width(),
+            'height': $mockupImage.height(),
             'background-image': `url(${this.options.path})`
           });
-          $mockup.remove();
-        });
+          $mockupImage.remove();
+        };
+
+        if (document.readyState === 'complete') {
+          prepareMockup();
+        }
+        else {
+          $(window).load(prepareMockup);
+        }
       }
 
       initInterface() {
-        $widgetEl.prepend(
-          `<div class="j-pp-help">
-            <div class="j-pp-icon"></div>
-            <div class="j-pp-block">
-              <div class="title">jQuery Pixel Perfect</div>
-              <div>Use <b>"Up/Down/Left/Right arrow"</b> keys for moving mockup</div>
-              <div>Use <b>"Q/W"</b> keys for changing opacity value</div>
-              <div>Use <b>"S"</b> key to show/hide mockup</div>
-              <div>Use <b>"F"</b> key to change fixed/absolute positioning</div>
-            </div>
-          </div>`
-        ).on('click', '.j-pp-icon', () => {
-          $widgetEl.find('.j-pp-block').fadeToggle(300);
-        });
+        $widgetEl
+          .find('.j-pp-help')
+          .remove()
+          .end()
+          .prepend(
+            `<div class="j-pp-help">
+              <div class="j-pp-icon"></div>
+              <div class="j-pp-block">
+                <div class="title">jQuery Pixel Perfect</div>
+                <div>Use <b>"Up/Down/Left/Right arrow"</b> keys for moving mockup</div>
+                <div>Use <b>"Q/W"</b> keys for changing opacity value</div>
+                <div>Use <b>"S"</b> key to show/hide mockup</div>
+                <div>Use <b>"F"</b> key to change fixed/absolute positioning</div>
+              </div>
+            </div>`
+          )
+          .on('click', '.j-pp-icon', () => {
+            $widgetEl.find('.j-pp-block').fadeToggle(300);
+          });
       }
 
       draggingActions() {
         if (this.options.draggable) {
           const $body = $('body');
           let dragging = false;
+
+          $body.off(
+            'mousedown',
+            'mousemove',
+            'mouseup',
+            'mouseleave'
+          );
 
           $body.on('mousedown', '.j-pp-mockup', function(event) {
             $(this).attr('unselectable', 'on').addClass('draggable');
@@ -230,17 +254,17 @@
           leftBtnCode() {
             props.left = numb($widgetEl.container.css('left')) - 1;
           },
-          opacityIncBtn() {
+          opacityIncBtnCode() {
             props.opacity = (props.opacity < 1) ? rnd(props.opacity + 0.1) : props.opacity;
           },
-          opacityDecBtn() {
+          opacityDecBtnCode() {
             props.opacity = (props.opacity > 0) ? rnd(props.opacity - 0.1) : props.opacity;
           },
-          visibility() {
-            props.display = (props.display == 'block') ? 'none' : 'block';
-          },
-          changePositionBtn() {
+          positionBtnCode() {
             props.position = (props.position == 'fixed') ? 'absolute' : 'fixed';
+          },
+          visibilityBtnCode() {
+            props.display = (props.display == 'block') ? 'none' : 'block';
           }
         };
 
