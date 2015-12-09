@@ -19,12 +19,12 @@
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect">Fakhreev M</a>
+          <a class="navbar-brand" href="http://github.com/maratfakhreev/jquery-pixel-perfect">Fakhreev M</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect">View On <strong>GitHub</strong></a></li>
+            <li><a href="http://github.com/maratfakhreev/jquery-pixel-perfect">View On <strong>GitHub</strong></a></li>
           </ul>
         </div>
       </div>
@@ -38,8 +38,8 @@
       <div class="head-block jumbotron">
         <h1>A simple tool for convenient work with design mockups in a browser</h1>
         <p>
-          <a class="btn btn-primary btn-lg" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect/archive/1.0.zip" role="button">Download (v1.0)</a>
-          <a class="btn btn-primary btn-lg" href="https://github.com/FakhreevMarat/jQuery-Pixel-Perfect" role="button">Docs</a>
+          <a class="btn btn-primary btn-lg" href="https://github.com/maratfakhreev/jquery-pixel-perfect/archive/v1.0.0.zip" role="button">Download (v1.0.0)</a>
+          <a class="btn btn-primary btn-lg" href="https://github.com/maratfakhreev/jquery-pixel-perfect" role="button">Docs</a>
         </p>
         <div class="computer">
           <div class="window"></div>
@@ -58,11 +58,16 @@
         <h1>How to install?</h1>
         <ol class="list">
           <li>Download the latest version of jQuery and jQuery-Pixel-Perfect css and js files</li>
-          <li>Add files to your project
+          <li>Add files to your project <br/>
+            <i>Browser:</i>
             <code>
-              &ltlink href="jquery-pixel-perfect.css" rel="stylesheet"&gt </br>
               &ltscript src="https://code.jquery.com/jquery.js" type="text/javascript"&gt&lt/script&gt <br/>
-              &ltscript src="jquery-pixel-perfect.js" type="text/javascript"&gt&lt/script&gt </br>
+              &ltscript src="jquery-pixel-perfect.js" type="text/javascript"&gt&lt/script&gt <br/>
+            </code>
+            <i>Common JS:</i>
+            <code>
+              require('jquery'); <br/>
+              require('jquery-pixel-perfect');
             </code>
           </li>
           <li>
@@ -71,9 +76,9 @@
           <li>
             Add initial js code, which binds the "body" tag with jQuery-Pixel-Perfect method:
             <code>
-              $(document).ready(function(){<br/>
+              $(document).ready(function() {<br/>
                 &nbsp;&nbsp;$('body').pixelPerfect();<br/>
-              })
+              });
             </code>
           </li>
         </ol>
@@ -94,18 +99,18 @@
             <code>
               $(document).ready(function(){<br/>
                 &nbsp;&nbsp;$('body').pixelPerfect({<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;path: "images/mockup.png", //default mockup path<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;path: 'images/mockup.png', //default mockup path<br/>
                   &nbsp;&nbsp;&nbsp;&nbsp;draggable: true, //draggable state<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;topBtnCode: 38, //default is "Up" key<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;rightBtnCode: 39, //default is "Right" key<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;bottomBtnCode: 40, //default is "Down" key<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;leftBtnCode: 37, //default is "Left" key<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;opacityIncBtn: 81, //default is "Q" key<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;opacityDecBtn: 87, //defauls is "W" key<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;changePositionBtn: 70, //default is "F" key<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;visibility: 83 //default is "S" key<br/>
-                &nbsp;});<br/>
-              })
+                  &nbsp;&nbsp;&nbsp;&nbsp;topBtnCode: 38, //default is "Up arrow" key<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;rightBtnCode: 39, //default is "Right arrow" key<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;bottomBtnCode: 40, //default is "Bottom arrow" key<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;leftBtnCode: 37, //default is "Left arrow" key<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;opacityIncBtnCode: 81, //default is "Q" key<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;opacityDecBtnCode: 87, //defauls is "W" key<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;positionBtnCode: 70, //default is "F" key<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;visibilityBtnCode: 83 //default is "S" key<br/>
+                &nbsp;&nbsp;});<br/>
+              });
             </code>
           </li>
           <li>
@@ -115,7 +120,7 @@
       </div>
 
       <footer class="footer">
-        &copy; 2013 All Rights Reserved.
+        &copy; 2013-2015 All Rights Reserved.
       </footer>
     </div>
   </body>
